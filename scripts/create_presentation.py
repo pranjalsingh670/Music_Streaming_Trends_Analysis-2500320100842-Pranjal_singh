@@ -181,10 +181,17 @@ def main():
     p2.space_before = Pt(14)
 
     p3 = tf.add_paragraph()
-    p3.text = "Domain: Sports & Entertainment   ·   github.com/pranjalsingh670/HCL-project"
-    p3.font.size = Pt(13)
-    p3.font.color.rgb = RGBColor(203, 213, 225)
-    p3.space_before = Pt(24)
+    p3.text = "Presented by: Pranjal Singh (2500320100842)"
+    p3.font.size = Pt(16)
+    p3.font.bold = True
+    p3.font.color.rgb = AMBER
+    p3.space_before = Pt(20)
+
+    p4 = tf.add_paragraph()
+    p4.text = "Domain: Sports & Entertainment   ·   github.com/pranjalsingh670/HCL-project"
+    p4.font.size = Pt(13)
+    p4.font.color.rgb = RGBColor(203, 213, 225)
+    p4.space_before = Pt(8)
 
     # Bottom KPI Preview Pills on Slide 1
     pills = [
