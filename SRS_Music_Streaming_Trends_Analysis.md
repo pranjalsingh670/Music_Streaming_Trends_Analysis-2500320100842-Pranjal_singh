@@ -4,7 +4,7 @@
 **Document Version:** 1.0  
 **Date:** November 26, 2026  
 **Domain:** Sports and Entertainment  
-**GitHub Repository:** [https://github.com/pranjalsingh670/HCL-project](https://github.com/pranjalsingh670/HCL-project)
+**GitHub Repository:** [https://github.com/pranjalsingh670/Music_Streaming_Trends_Analysis-2500320100842-Pranjal_singh](https://github.com/pranjalsingh670/Music_Streaming_Trends_Analysis-2500320100842-Pranjal_singh)
 
 ---
 

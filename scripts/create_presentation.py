@@ -188,7 +188,7 @@ def main():
     p3.space_before = Pt(20)
 
     p4 = tf.add_paragraph()
-    p4.text = "Domain: Sports & Entertainment   ·   github.com/pranjalsingh670/HCL-project"
+    p4.text = "Domain: Sports & Entertainment   ·   github.com/pranjalsingh670/Music_Streaming_Trends_Analysis-2500320100842-Pranjal_singh"
     p4.font.size = Pt(13)
     p4.font.color.rgb = RGBColor(203, 213, 225)
     p4.space_before = Pt(8)
