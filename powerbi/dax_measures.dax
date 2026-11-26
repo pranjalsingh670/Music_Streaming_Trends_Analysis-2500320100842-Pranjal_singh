@@ -1,0 +1,68 @@
+// ============================================================================
+// Project 23: Music Streaming Trends Analysis
+// File: powerbi/dax_measures.dax
+// Purpose: DAX Measures for KPI Cards, Top Artists, Yearly Trends, and Slicers
+// ============================================================================
+
+// --- Core KPI Measures ---
+Total Streams = SUM(fact_streams[streams])
+
+Total Streams (Billions) = DIVIDE([Total Streams], 1000000000, 0)
+
+Total Tracks = DISTINCTCOUNT(fact_streams[track_id])
+
+Total Artists = DISTINCTCOUNT(dim_artists[artist_id])
+
+Avg Popularity = AVERAGE(fact_streams[popularity])
+
+Avg Duration (Min) = DIVIDE(AVERAGE(fact_streams[duration_ms]), 60000, 0)
+
+Explicit Track % =
+DIVIDE(
+    CALCULATE(COUNTROWS(fact_streams), fact_streams[explicit_flag] = "Y"),
+    COUNTROWS(fact_streams),
+    0
+)
+
+// --- Audio Feature Averages ---
+Avg Danceability = AVERAGE(fact_streams[danceability])
+Avg Energy       = AVERAGE(fact_streams[energy])
+Avg Valence      = AVERAGE(fact_streams[valence])
+Avg Acousticness = AVERAGE(fact_streams[acousticness])
+Avg Tempo (BPM)  = AVERAGE(fact_streams[tempo_bpm])
+
+// --- Top-N Artist & Share Measures ---
+Artist Stream Rank =
+RANKX(
+    ALL(dim_artists[artist_name]),
+    [Total Streams],
+    ,
+    DESC,
+    DENSE
+)
+
+Artist Stream Share % =
+DIVIDE(
+    [Total Streams],
+    CALCULATE([Total Streams], ALL(dim_artists)),
+    0
+)
+
+// --- Yearly Trend & YoY Growth ---
+Streams PY =
+CALCULATE(
+    [Total Streams],
+    FILTER(
+        ALL(dim_dates[release_year]),
+        dim_dates[release_year] = MAX(dim_dates[release_year]) - 1
+    )
+)
+
+Streams YoY Growth % =
+VAR PrevStreams = [Streams PY]
+RETURN
+IF(
+    NOT ISBLANK(PrevStreams) && PrevStreams > 0,
+    DIVIDE([Total Streams] - PrevStreams, PrevStreams, 0),
+    BLANK()
+)
