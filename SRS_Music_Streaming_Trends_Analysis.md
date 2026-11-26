@@ -4,7 +4,7 @@
 **Document Version:** 1.0  
 **Date:** November 26, 2026  
 **Domain:** Sports and Entertainment  
-**GitHub Repository:** [https://github.com/ash-pikachu/HCL-project](https://github.com/ash-pikachu/HCL-project)
+**GitHub Repository:** [https://github.com/pranjalsingh670/HCL-project](https://github.com/pranjalsingh670/HCL-project)
 
 ---
 
